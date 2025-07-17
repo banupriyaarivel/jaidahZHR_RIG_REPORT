@@ -1,0 +1,85 @@
+<mvc:View
+    controllerName="jaidahZHR_RIG_REPORT.controller.View1"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <App id="app" class="myAPP">
+        <pages>
+            <Page title="{i18n>title}">
+                <content>
+                    <Table
+                        id="idTable"
+                        items="{oRIGData>/}"
+                        showSeparators="All">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <ToolbarSpacer/>
+                                <Button
+                                    icon="sap-icon://excel-attachment"
+                                    press="onExcelExport"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column hAlign="Center">
+                                <Text class="myFont" text="Request No"/>
+                            </Column>
+                            <Column>
+                                <Text class="myFont" text="Employee ID and Name"/>
+                            </Column>
+                            <Column>
+                                <Text class="myFont" text="Company Code and Name"/>
+                            </Column>
+                            <Column>
+                                <Text class="myFont" text="Cost Center and Name"/>
+                            </Column>
+                            <Column hAlign="Center">
+                                <Text class="myFont" text="Approver Status"/>
+                            </Column>
+                            <Column hAlign="Center">
+                                <Text class="myFont" text="Attachments"/>
+                            </Column>
+                            <Column hAlign="Center">
+                                <Text class="myFont" text="Action"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Link
+                                        text="{oRIGData>RequestNo}"
+                                        press="onRequestNoPress"/>
+                                    <Text
+                                        text="{oRIGData>EmployeeId} - {oRIGData>EmployeeName}"/>
+                                    <Text
+                                        text="{oRIGData>CompanyCode} - {oRIGData>CompanycodeDesc}"/>
+                                    <Text
+                                        text="{oRIGData>CostCenter} - {oRIGData>CostcenterDesc}"/>
+                                    <ObjectStatus
+                                        text="{path: 'oRIGData>UpdateLog'}"
+                                        state="{path: 'oRIGData>UpdateLog', formatter: '.formatter.Priority'}"/>
+                                    <core:Icon
+                                        src="sap-icon://download"
+                                        press="onDownload"/>
+                                    <FlexBox
+                                        alignItems="Start"
+                                        justifyContent="Center">
+                                        <Button
+                                            class="sapUiTinyMarginEnd"
+                                            icon="sap-icon://edit"
+                                            visible="{= ${oRIGData>ZworkflowKey} === 'R' }"
+                                            press="onRowEditPress"/>
+                                    </FlexBox>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

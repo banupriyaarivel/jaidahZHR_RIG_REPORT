@@ -1,0 +1,145 @@
+{
+  "_version": "1.45.0",
+  "sap.app": {
+    "id": "jaidahZHR_RIG_REPORT",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.7.4"
+    },
+    "dataSources": {
+      "ZHR_RIG_EMPLOYEE_SRV": {
+        "uri": "/sap/opu/odata/sap/ZHR_RIG_EMPLOYEE_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.138.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {},
+        "sap.ui.layout": {},
+        "sap.uxap": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "jaidahZHR_RIG_REPORT.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+          "defaultUpdateMethod": "PUT"
+        },
+        "dataSource": "ZHR_RIG_EMPLOYEE_SRV",
+        "preload": true
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "jaidahZHR_RIG_REPORT.view",
+        "async": true,
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "targets": {
+        "InitialView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearAggregation": true,
+          "viewName": "View1",
+          "controlAggregation": "pages"
+        },
+        "AllowanceView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearAggregation": true,
+          "viewName": "Allowance",
+          "controlAggregation": "pages"
+        }
+      },
+      "routes": [
+        {
+          "name": "InitialView",
+          "pattern": "",
+          "titleTarget": "",
+          "greedy": false,
+          "target": [
+            "InitialView"
+          ]
+        },
+        {
+          "name": "AllowanceView",
+          "pattern": "AllowanceView/{EmployeeId}/{RequestNo}/{CostCenter}/{CompanyCode}/{Option}",
+          "titleTarget": "",
+          "greedy": false,
+          "target": [
+            "AllowanceView"
+          ]
+        }
+      ]
+    },
+    "rootView": {
+      "viewName": "jaidahZHR_RIG_REPORT.view.View1",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.platform.abap": {
+    "uri": "/sap/bc/ui5_ui5/sap/zhr_rig_report",
+    "_version": "1.1.0"
+  }
+}

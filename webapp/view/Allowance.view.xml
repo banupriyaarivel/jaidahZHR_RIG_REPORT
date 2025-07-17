@@ -1,0 +1,163 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    controllerName="jaidahZHR_RIG_REPORT.controller.Allowance">
+
+    <Page title="RIG Employee Allowance" navButtonPress="onNavBack" showNavButton="false">
+
+        <content>
+            <f:SimpleForm
+                id="SimpleFormChange354"
+                editable="true"
+                layout="ResponsiveLayout"
+                title="Employee Details"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1">
+                
+                <f:content>
+                    <core:Title text=""/>
+                    <Label text="Employee ID" design="Bold"/>
+                    <Input id="name" value="{/EmployeeId}" editable="false"/>
+                    
+                    <Label text="Employee Name" design="Bold"/>
+                    <Input value="{/EmployeeName}" editable="false"/>
+                    
+                    <Label text="Company Code" design="Bold"/>
+                    <Input value="{/CompanyCode}" editable="false"/>
+                    
+                    <Label text="Company Code Name" design="Bold"/>
+                    <Input value="{/CompanycodeDesc}" editable="false"/>
+                    
+                    <Label text="Cost Center" design="Bold"/>
+                    <Input value="{/CostCenter}" editable="false"/>
+                    
+                    <Label text="Cost Center Name" design="Bold"/>
+                    <Input value="{/CostcenterDesc}" editable="false"/>
+                </f:content>
+            </f:SimpleForm>
+
+            <Table
+                id="employeeDetailsTable"
+                inset="false"
+                items="{empModel>/EmployeeData}">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Additional Details"/>
+                        <ToolbarSpacer/>
+                        <Button text="Add Row" press="onAddRow" type="Emphasized"/>
+                        <Button text="Remove Row" press="onRemoveRow" type="Reject"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column width="2rem"><Text text=""/></Column>
+                    <Column><Text text="From Date"/></Column>
+                    <Column><Text text="To Date"/></Column>
+                    <Column><Text text="Rig Location"/></Column>
+                    <Column><Text text="Job Type"/></Column>
+                    <Column width="14rem"><Text text="Comments"/></Column>
+                    <Column><Text text="Worked Days"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <CheckBox selected="{= ${empModel>Selected} === 'X' }" select="onCheckboxSelect"/>
+                            <DatePicker
+                                value="{path: 'empModel>FromDt', formatter: '.formatter.date1'}"
+                                valueFormat="yyyy-MM-dd"
+                                displayFormat="dd-MM-yyyy"
+                                change="onDateChange"/>
+                            <DatePicker
+                                value="{path: 'empModel>ToDt', formatter: '.formatter.date'}"
+                                valueFormat="yyyy-MM-dd"
+                                displayFormat="dd-MM-yyyy"
+                                change="onDateChange"/>
+                            <ComboBox
+                                selectedKey="{= ${empModel>RigLocation} ? ${empModel>RigLocation} : '' }"
+                                required="true"
+                                change="onRigLocationChange"
+                                items="{LocationData>/}">
+                                <core:Item key="{LocationData>RigLocation}" text="{LocationData>RigLocation}"/>
+                            </ComboBox>
+                            <ComboBox
+                                selectedKey="{empModel>JobType}"
+                                required="true"
+                                change="onJobTypeChange">
+                                <core:Item key="Working on Rig site" text="Working on Rig site"/>
+                                <core:Item key="Working from Tow" text="Working from Town"/>
+                                <core:Item key="Stand by Town" text="Stand by Town"/>
+                                <core:Item key="Tech/Operation Support" text="Tech/Operation Support"/>
+                                <core:Item key="Vacation" text="Vacation"/>
+                            </ComboBox>
+                            <TextArea width="13rem" value="{empModel>Comments}"/>
+                            <Text text="{empModel>WorkedDays}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <HBox alignItems="Center">
+                <Label text="Upload Files" design="Bold" class="sapUiSmallMarginTop sapUiSmallMarginBegin"/>
+            </HBox>
+
+            <UploadCollection
+                id="UploadCollectionIP"
+                maximumFilenameLength="255"
+                maximumFileSize="10"
+                instantUpload="true"
+                uploadUrl="/sap/opu/odata/sap/ZHR_RIG_EMPLOYEE_SRV/Get_AttachmentSet"
+                showSeparators="None"
+                class="sapUiSmallMarginBeginEnd"
+                items="{/items}"
+                change="onChangeIP"
+                fileDeleted="onFileDeleted"
+                fileRenamed="onFileRenamed"
+                multiple="true"
+                fileType="jpg,png,bmp,pdf,txt,docx,xls,xlsx,zip,dwg,dxf,doc,XLS,XLSX,jpeg,gif,ppt,pptx"
+                fileSizeExceed="onFileSizeExceed"
+                typeMissmatch="onTypeMissmatch"
+                beforeUploadStarts="onBeforeUploadStarts"
+                uploadComplete="onUploadComplete"
+                filenameLengthExceed="filenameLengthExceed"
+                noDataText="Attachments">
+
+                <UploadCollectionItem
+                    id="UploadCollectionItem"
+                    contributor="{contributor}"
+                    documentId="{documentId}"
+                    fileName="{fileName}"
+                    mimeType="{mimeType}"
+                    thumbnailUrl="{thumbnailUrl}"
+                    uploadedDate="{uploadedDate}"
+                    url="{url}"
+                    press="onDownloadAttachment"
+                    enableEdit="false"
+                    enableDelete="true"
+                    visibleEdit="false"
+                    visibleDelete="true"/>
+            </UploadCollection>
+
+        </content>
+
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button text="Send for Approvers" press="onSubmit" id="idsub" type="Accept" enabled="true"/>
+            </Toolbar>
+        </footer>
+
+    </Page>
+</mvc:View>

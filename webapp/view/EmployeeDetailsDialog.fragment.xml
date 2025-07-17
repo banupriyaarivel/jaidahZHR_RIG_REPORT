@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="employeeDetailsDialog" title="Employee Details" class="sapUiResponsiveMargin"
+        stretch="{device>/system/phone}" afterClose=".onCloseDialog">
+    
+        <endButton>
+            <Button icon="sap-icon://decline" press=".onCloseDialog"/>
+        </endButton>
+
+        <content>
+            <Table id="employeeDetailsTable" inset="false" items="{empModel>/EmployeeData}">
+                <columns>
+                    <Column><Text text="From Date"/></Column>
+                    <Column><Text text="To Date"/></Column>
+                    <Column><Text text="Rig Location"/></Column>
+                    <Column><Text text="Job Type"/></Column>
+                    <Column width="14rem"><Text text="Comments"/></Column>
+                    <Column><Text text="Worked Days"/></Column>
+                <!--   <Column><Text class="myFont" text="Action"/></Column> -->
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{path: 'empModel>FromDt', formatter: '.formatter.date1'}"/>
+                            <Text text="{path: 'empModel>ToDt', formatter: '.formatter.date'}"/>
+                            <Text text="{empModel>RigLocation}"/>
+                            <Text text="{empModel>AllowanceType}"/>
+                            <Text text="{empModel>Comments}" />
+                            <Text text="{empModel>WorkedDays}"/>
+                           <!-- <Button type="Reject" icon="sap-icon://delete" press="onRowDeletePress" />-->
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

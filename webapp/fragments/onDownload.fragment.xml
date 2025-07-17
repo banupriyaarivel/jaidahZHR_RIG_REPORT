@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:dnd="sap.ui.core.dnd" xmlns:ui="sap.ui.table">
+	<Dialog id="idDown" title="Download Files" contentWidth="800px">
+		<HBox renderType="Bare">
+			<Table id="idDown1" items="{oDownModel>/results}" >
+				<columns>
+					<Column>
+						<Text text="File Name"/>
+					</Column>
+					<Column>
+						<Text text="Download"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem >
+						<cells>
+							<Text text="{oDownModel>Filename}"></Text>
+							<Button icon="sap-icon://download" width="100px" press="ongetFile"></Button>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</HBox>
+		<buttons>
+			<Button text="Ok" type="Accept" press="onDownCan"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

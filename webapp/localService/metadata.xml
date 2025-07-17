@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZHR_RIG_EMPLOYEE_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Get_Employee" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeId"/>
+                    <PropertyRef Name="RequestNo"/>
+                </Key>
+                <Property Name="CostCenter" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ismanager" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZworkflowKey" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Workflow Notified" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RigLocation" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="RIG Location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeId" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Request Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UpdateLog" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Bapi return log" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CostcenterDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Empl./appl.name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanycodeDesc" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Company Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AllowanceType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Allowance Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AllowanceName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Allowance Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkedDays" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Worked Days" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalAmount" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:label="Net Price" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Infotype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Infotype" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FromDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ToDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Action" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="EmployeeItem" Relationship="ZHR_RIG_EMPLOYEE_SRV.Get_Employee_Rig_To_Item" FromRole="FromRole_Get_Employee_Rig_To_Item" ToRole="ToRole_Get_Employee_Rig_To_Item"/>
+            </EntityType>
+            <EntityType Name="GetLeaveApprover" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeId"/>
+                </Key>
+                <Property Name="Approver1" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="System ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Request Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeId" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Empl./appl.name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanycodeDesc" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Company Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FromDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ToDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Leavereason" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Reason for Leave" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Get_Attachment" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RequestNo"/>
+                    <PropertyRef Name="Filename"/>
+                </Key>
+                <Property Name="RequestNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zfile" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Get_Filename" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Filename"/>
+                </Key>
+                <Property Name="RequestNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Get_Employee_Item" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RequestNo"/>
+                    <PropertyRef Name="EmployeeId"/>
+                    <PropertyRef Name="ItemNo"/>
+                </Key>
+                <Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Action" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Comments" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="JobType" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Job Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UpdateLog" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Bapi Log" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Request Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RigLocation" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="RIG Location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AllowanceType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Subtype" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeId" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AllowanceName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Allowance Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Item No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkedDays" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Worked Days" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalAmount" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Infotype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Infotype" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FromDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ToDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="Get_Employee_Rig_To_Item" sap:content-version="1">
+                <End Type="ZHR_RIG_EMPLOYEE_SRV.Get_Employee" Multiplicity="0..1" Role="FromRole_Get_Employee_Rig_To_Item"/>
+                <End Type="ZHR_RIG_EMPLOYEE_SRV.Get_Employee_Item" Multiplicity="*" Role="ToRole_Get_Employee_Rig_To_Item"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Get_Employee_Rig_To_Item">
+                        <PropertyRef Name="RequestNo"/>
+                        <PropertyRef Name="EmployeeId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Get_Employee_Rig_To_Item">
+                        <PropertyRef Name="RequestNo"/>
+                        <PropertyRef Name="EmployeeId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZHR_RIG_EMPLOYEE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Get_EmployeeSet" EntityType="ZHR_RIG_EMPLOYEE_SRV.Get_Employee" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GetLeaveApproverSet" EntityType="ZHR_RIG_EMPLOYEE_SRV.GetLeaveApprover" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Get_AttachmentSet" EntityType="ZHR_RIG_EMPLOYEE_SRV.Get_Attachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Get_FilenameSet" EntityType="ZHR_RIG_EMPLOYEE_SRV.Get_Filename" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Get_Employee_ItemSet" EntityType="ZHR_RIG_EMPLOYEE_SRV.Get_Employee_Item" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="Get_Employee_Rig_To_ItemSet" Association="ZHR_RIG_EMPLOYEE_SRV.Get_Employee_Rig_To_Item" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Get_EmployeeSet" Role="FromRole_Get_Employee_Rig_To_Item"/>
+                    <End EntitySet="Get_Employee_ItemSet" Role="ToRole_Get_Employee_Rig_To_Item"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="http://10.10.1.30:8000/sap/opu/odata/sap/ZHR_RIG_EMPLOYEE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://10.10.1.30:8000/sap/opu/odata/sap/ZHR_RIG_EMPLOYEE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
