@@ -441,6 +441,11 @@ onNavBack: function () {
     // Get employee data from empModel
     var aEmployeeData = oView.getModel("empModel").getProperty("/EmployeeData") || [];
 
+     if (!aEmployeeData || aEmployeeData.length === 0) {
+        MessageBox.error("Please add at least one row before submitting.");
+        return;
+    }
+
       // Add mandatory field validation per row before proceeding
     for (var i = 0; i < aEmployeeData.length; i++) {
         var oRow = aEmployeeData[i];
