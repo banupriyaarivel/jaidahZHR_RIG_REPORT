@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"jaidahzhr_rig_report/controller/View1.controller"
+	"jaidahZHR_RIG_REPORT2/controller/View1.controller"
 ], function (Controller) {
 	"use strict";
 

@@ -4,11 +4,11 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/Device",
-    "jaidahZHR_RIG_REPORT/model/models"
+    "jaidahZHR_RIG_REPORT2/model/models"
 ], function (UIComponent, Device, models) {
     "use strict";
 
-    return UIComponent.extend("jaidahZHR_RIG_REPORT.Component", {
+    return UIComponent.extend("jaidahZHR_RIG_REPORT2.Component", {
         metadata: {
             manifest: "json"
         },

@@ -6,7 +6,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:u="sap.ui.unified"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    controllerName="jaidahZHR_RIG_REPORT.controller.Allowance">
+    controllerName="jaidahZHR_RIG_REPORT2.controller.Allowance">
 
     <Page title="RIG Employee Allowance" navButtonPress="onNavBack" showNavButton="false">
 
@@ -97,7 +97,7 @@
                                 required="true"
                                 change="onJobTypeChange">
                                 <core:Item key="Working on Rig site" text="Working on Rig site"/>
-                                <core:Item key="Working from Tow" text="Working from Town"/>
+                                <core:Item key="Working from Town" text="Working from Town"/>
                                 <core:Item key="Stand by Town" text="Stand by Town"/>
                                 <core:Item key="Tech/Operation Support" text="Tech/Operation Support"/>
                                 <core:Item key="Vacation" text="Vacation"/>

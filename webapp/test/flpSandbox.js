@@ -40,7 +40,7 @@ sap.ui.define([
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
 									"title": "RIG Allowance Report",
-									"targetURL": "#jaidahZHR_RIG_REPORT-display"
+									"targetURL": "#jaidahZHR_RIG_REPORT2-display"
 								}
 							}]
 						}]
@@ -51,8 +51,8 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"jaidahZHR_RIG_REPORT-display": {
-								"semanticObject": "jaidahZHR_RIG_REPORT",
+							"jaidahZHR_RIG_REPORT2-display": {
+								"semanticObject": "jaidahZHR_RIG_REPORT2",
 								"action": "display",
 								"description": "RIG Allowance Report",
 								"title": "RIG Allowance Report",
@@ -61,8 +61,8 @@ sap.ui.define([
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=jaidahZHR_RIG_REPORT",
-									"url": sap.ui.require.toUrl("jaidahZHR_RIG_REPORT")
+									"additionalInformation": "SAPUI5.Component=jaidahZHR_RIG_REPORT2",
+									"url": sap.ui.require.toUrl("jaidahZHR_RIG_REPORT2")
 								}
 							}
 						}

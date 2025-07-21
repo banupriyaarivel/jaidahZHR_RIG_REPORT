@@ -1,7 +1,7 @@
 {
   "_version": "1.45.0",
   "sap.app": {
-    "id": "jaidahZHR_RIG_REPORT",
+    "id": "jaidahZHR_RIG_REPORT2",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -65,7 +65,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "jaidahZHR_RIG_REPORT.i18n.i18n"
+          "bundleName": "jaidahZHR_RIG_REPORT2.i18n.i18n"
         }
       },
       "": {
@@ -88,7 +88,7 @@
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "viewPath": "jaidahZHR_RIG_REPORT.view",
+        "viewPath": "jaidahZHR_RIG_REPORT2.view",
         "async": true,
         "controlAggregation": "pages",
         "controlId": "app",
@@ -132,7 +132,7 @@
       ]
     },
     "rootView": {
-      "viewName": "jaidahZHR_RIG_REPORT.view.View1",
+      "viewName": "jaidahZHR_RIG_REPORT2.view.View1",
       "type": "XML",
       "async": true,
       "id": "App"

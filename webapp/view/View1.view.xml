@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="jaidahZHR_RIG_REPORT.controller.View1"
+    controllerName="jaidahZHR_RIG_REPORT2.controller.View1"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"

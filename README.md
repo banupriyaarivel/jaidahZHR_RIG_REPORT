@@ -8,7 +8,7 @@
 |**Floorplan Used**<br>simple|
 |**Service Type**<br>OData Url|
 |**Service URL**<br>http://10.10.1.30:8000/sap/opu/odata/sap/ZHR_RIG_EMPLOYEE_SRV
-|**Module Name**<br>jaidahzhr_rig_report|
+|**Module Name**<br>jaidahZHR_RIG_REPORT2|
 |**Application Title**<br>RIG Allowance Report|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
@@ -16,7 +16,7 @@
 |**Enable Code Assist Libraries**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## jaidahzhr_rig_report
+## jaidahZHR_RIG_REPORT2
 
 RIG Allowance Report
 

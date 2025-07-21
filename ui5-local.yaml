@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: jaidahZHR_RIG_REPORT
+  name: jaidahZHR_RIG_REPORT2
 type: application
 framework:
   name: SAPUI5
@@ -45,5 +45,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: jaidahZHR_RIG_REPORT
+        component: jaidahZHR_RIG_REPORT2
         ui5Theme: sap_horizon

@@ -1,7 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "jaidahZHR_RIG_REPORT/util/formatter",
+    "jaidahZHR_RIG_REPORT2/util/formatter",
     "sap/ui/export/Spreadsheet",
     "sap/ui/export/library",
     "sap/ui/model/Filter",
@@ -17,7 +17,7 @@ sap.ui.define([
     var EdmType = library.EdmType;
     var oReqNo;
 
-    return Controller.extend("jaidahZHR_RIG_REPORT.controller.View1", {
+    return Controller.extend("jaidahZHR_RIG_REPORT2.controller.View1", {
 
         formatter: formatter,
 
@@ -62,7 +62,7 @@ sap.ui.define([
             });
 
             if (!this._DailogCC7) {
-                this._DailogCC7 = sap.ui.xmlfragment("jaidahZHR_RIG_REPORT.fragments.onDownload", this);
+                this._DailogCC7 = sap.ui.xmlfragment("jaidahZHR_RIG_REPORT2.fragments.onDownload", this);
                 oView.addDependent(this._DailogCC7);
             }
             this._DailogCC7.open();
@@ -143,7 +143,7 @@ sap.ui.define([
                     if (!this._pDialog) {
                         Fragment.load({
                             id: oView.getId(),
-                            name: "jaidahZHR_RIG_REPORT.view.EmployeeDetailsDialog",
+                            name: "jaidahZHR_RIG_REPORT2.view.EmployeeDetailsDialog",
                             controller: this
                         }).then((oDialog) => {
                             oView.addDependent(oDialog);

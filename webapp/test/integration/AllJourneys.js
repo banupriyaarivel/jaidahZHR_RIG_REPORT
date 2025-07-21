@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "jaidahZHR_RIG_REPORT.view.",
+		viewNamespace: "jaidahZHR_RIG_REPORT2.view.",
 		autoWait: true
 	});
 });

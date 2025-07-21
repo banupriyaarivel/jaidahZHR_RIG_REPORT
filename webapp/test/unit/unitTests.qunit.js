@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"jaidahzhr_rig_report/test/unit/AllTests"
+		"jaidahZHR_RIG_REPORT2/test/unit/AllTests"
 	], function () {
 		QUnit.start();
 	});

@@ -3,14 +3,14 @@ sap.ui.define([
 		"sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "sap/ui/model/json/JSONModel", "sap/m/MessageBox",
 		'sap/ui/unified/DateRange', 'sap/m/MessageToast', 'sap/ui/core/format/DateFormat', 'sap/ui/core/library', 'sap/ui/model/Filter',
 		'sap/ui/model/FilterOperator',
-		"jaidahZHR_RIG_REPORT/util/formatter"
+		"jaidahZHR_RIG_REPORT2/util/formatter"
 	],
 	function (Controller, Fragment, JSONModel, MessageBox, DateRange, MessageToast, DateFormat, coreLibrary, Filter, FilterOperator,formatter) {
 		"use strict";
 		var oView;
 		var CalendarType = coreLibrary.CalendarType;
 		var ValueState = coreLibrary.ValueState;
-		return Controller.extend("jaidahZHR_RIG_REPORT.controller.Allowance", {
+		return Controller.extend("jaidahZHR_RIG_REPORT2.controller.Allowance", {
 			formatter: formatter,
 			oFormatYyyymmdd: null,
 			onInit: function () {
@@ -441,6 +441,15 @@ onNavBack: function () {
     // Get employee data from empModel
     var aEmployeeData = oView.getModel("empModel").getProperty("/EmployeeData") || [];
 
+      // Add mandatory field validation per row before proceeding
+    for (var i = 0; i < aEmployeeData.length; i++) {
+        var oRow = aEmployeeData[i];
+        if (!oRow.JobType || !oRow.RigLocation || !oRow.FromDt || !oRow.ToDt) {
+            MessageBox.error("Please fill all mandatory fields in row " + (i + 1));
+            return; // stop submission if validation fails
+        }
+    }
+
     // Function to format dates correctly
     function formatDate(sDate) {
         if (!sDate) return ""; // Return empty if no date is provided
@@ -457,9 +466,10 @@ onNavBack: function () {
             ToDt: formatDate(oItem.ToDt),
             RigLocation: oItem.RigLocation,
             AllowanceType: oItem.AllowanceType,
-            AllowanceName: oItem.AllowanceName,
+            AllowanceName: oItem.AllowanceName,  
             WorkedDays: oItem.WorkedDays,
             JobType: oItem.JobType,
+            Comments: oItem.Comments,
             ItemNo: (i + 1).toString(),
             RequestNo: oHeaderData.RequestNo
         };
